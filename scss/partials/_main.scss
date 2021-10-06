@@ -4,7 +4,7 @@
     box-sizing: border-box;
     font-family: $fontRedHatDisplay;
 }
-
+/*Configurations generals*/
 .general {
     width: 100%;
     height: 130vh;
@@ -13,20 +13,35 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    position: relative;
+    overflow: hidden;
 }
-
 .container {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 92%;
+    max-width: 1440px;
+    min-width: 375px;
+    width: 93%;
     height: 83%;
     background-color: $paleBlue;
-    background-image: url(../../images/wave.svg);
-    background-repeat: no-repeat;
-    background-size: cover;
     box-shadow: 0 15px 20px rgba(0, 0, 0, 0.089), 0 6px 6px rgba(0, 0, 0, 0.13);
     border-radius: 5px;
+    position: relative;
+    /*Background responsive*/
+    .bg {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        border-radius: 5px;
+        background-image: url(../../images/pattern-background-desktop.svg);
+        background-repeat: no-repeat;
+        @media (width: 375px) {
+            background-image: url(../../images/pattern-background-mobile.svg);
+            background-repeat: no-repeat;
+        }
+    }
+    /*Container card*/
     .container-card {
         background-color: $veryPaleBlue;
         display: block;
@@ -34,6 +49,7 @@
         height: 550px;
         border-radius: 14px;
         box-shadow: 0 15px 20px rgba(0, 0, 0, 0.199), 0 6px 6px rgba(0, 0, 0, 0.192);
+        z-index: 1000;
         .cont-img {
             display:block;
             background-image: url(../../images/illustration-hero.svg);
@@ -41,7 +57,7 @@
             background-position: center;
             background-repeat: no-repeat;
             width: 100%;
-            height: 130px;
+            height: 150px;
             border-radius: 14px 14px 0 0;
         }
         .cont-summary {
@@ -65,23 +81,30 @@
             }
             .cont-plan {
                 width: 90%;
-                display: flex;
+                display: grid;
+                grid-template-columns: 60px auto auto;
                 align-items: center;
                 background-color: $paleBlue;
                 padding: 8px;
                 border-radius: 4px;
                 margin: 30px auto;
+                padding-right: 22px;
                 .cont-plan-img {
                     padding: 0 6px 0 6px;
+                }
+                .plan-type {
+                    justify-self: flex-start;
                 }
                 .plan-type-span {
                     font-weight: $fontBold;
                 }
                 .plan-change {
+                    justify-self: flex-end;
                     font-weight: $fontBold;
-                    font-size: 10;
+                    font-size: $fontSizeLink;
                 }
             }
+            /*Buttons*/
             .buttons {
                 width: 100%;
                 margin: auto;
@@ -95,6 +118,7 @@
                 background: $brightBlue;
                 color: $paleBlue;
                 cursor: pointer;
+                box-shadow: 0 15px 20px rgba(0, 0, 0, 0.144), 0 6px 6px rgba(0, 0, 0, 0.123);
                 transition: all .3s ease;
                 &:hover {
                     background-color: $brightBlueHover;
@@ -114,6 +138,107 @@
 
 }
 
+/*Effects*/
+.cont-effect-1 {
+    position: absolute;
+    bottom: -10%;
+    left: 10%;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    border: 5px solid $paleBlue;
+    animation: animation 2s infinite ease;
+}
+.cont-effect-2 {
+    position: absolute;
+    top: 2%;
+    left: 15%;
+    width: 80px;
+    height: 10px;
+    background-color: $paleBlue;
+    animation: animation 2s infinite ease-out;
+    &::after {
+        content: '';
+        position: absolute;
+        top: 10px;
+        left: 0;
+        width: 80px;
+        height: 10px;
+        background-color: $paleBlue;
+        margin-top: 20px;
+    }
+}
+.cont-effect-3 {
+    position: absolute;
+    display: grid;
+    grid-template-columns: 20px 20px;
+    top: 20%;
+    right: -3%;
+    width: 80px;
+    height: 100px;
+    animation: animation 5s infinite ease-in;
+    .effect-3 {
+        width: 10px;
+        height: 10px;
+        background-color: $colorEffect-3;
+        border-radius: 50%;
+    }
+}
+.cont-effect-4 {
+    position: absolute;
+    top: 6%;
+    left: 70%;
+    width: 80px;
+    height: 10px;
+    background-color: $paleBlue;
+    transform: rotate(-60deg);
+    animation: animation4 6s infinite ease-in-out;
+    &::after {
+        content: '';
+        position: absolute;
+        top: 10px;
+        left: 0;
+        width: 80px;
+        height: 10px;
+        background-color: $paleBlue;
+        margin-top: 20px;
+    }
+}
+
+.cont-effect-5 {
+    position: absolute;
+    display: grid;
+    grid-template-columns: auto auto auto;
+    bottom: -6%;
+    right: 20%;
+    width: 80px;
+    height: 100px;
+    animation: animation 5s infinite ease-in;
+    .effect-5 {
+        width: 30px;
+        height: 30%;
+        margin: 5px;
+        border-radius: 50%;
+        background-color: $paleBlue;
+    }
+}
+
+@keyframes animation {
+    0% {
+        transform: translatex(0px);
+    }
+    50% {
+        transform: translatex(25px);
+    }
+}
+@keyframes animation4 {
+    0% {
+        left: 70%;
+    }
+    50% {
+        left: 60%;
+    }
+}
 /*Gratefulness*/
 .attribution {
     width: 100%;
@@ -122,7 +247,6 @@
     font-size: 11px; 
     text-align: center;
 }
-
 .attribution a {
     color: hsl(228, 45%, 44%);
 }
