@@ -1,0 +1,128 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: $fontRedHatDisplay;
+}
+
+.general {
+    width: 100%;
+    height: 130vh;
+    max-width: 1440px;
+    min-width: 375px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 92%;
+    height: 83%;
+    background-color: $paleBlue;
+    background-image: url(../../images/wave.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    box-shadow: 0 15px 20px rgba(0, 0, 0, 0.089), 0 6px 6px rgba(0, 0, 0, 0.13);
+    border-radius: 5px;
+    .container-card {
+        background-color: $veryPaleBlue;
+        display: block;
+        width: 380px;
+        height: 550px;
+        border-radius: 14px;
+        box-shadow: 0 15px 20px rgba(0, 0, 0, 0.199), 0 6px 6px rgba(0, 0, 0, 0.192);
+        .cont-img {
+            display:block;
+            background-image: url(../../images/illustration-hero.svg);
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            width: 100%;
+            height: 130px;
+            border-radius: 14px 14px 0 0;
+        }
+        .cont-summary {
+            margin: 10px; 
+            padding: 0;
+            .cont-txt {
+                text-align: center;
+                .cont-txt-title {
+                    font-size: 28px;
+                    font-weight: $fontBlack;
+                    padding: 20px 0 20px 0;
+                }
+                .cont-txt-p {
+                    font-weight: $fontMedium;
+                    font-size: $fontSizeParagraph;
+                    color: $desaturatedBlue;
+                }
+            }
+            .cont-choice {
+                width: 100%;
+            }
+            .cont-plan {
+                width: 90%;
+                display: flex;
+                align-items: center;
+                background-color: $paleBlue;
+                padding: 8px;
+                border-radius: 4px;
+                margin: 30px auto;
+                .cont-plan-img {
+                    padding: 0 6px 0 6px;
+                }
+                .plan-type-span {
+                    font-weight: $fontBold;
+                }
+                .plan-change {
+                    font-weight: $fontBold;
+                    font-size: 10;
+                }
+            }
+            .buttons {
+                width: 100%;
+                margin: auto;
+                text-align: center;
+                .button-pay, 
+                .button-cancel {
+                    @extend %button;
+                }
+            }
+            .button-pay {
+                background: $brightBlue;
+                color: $paleBlue;
+                cursor: pointer;
+                transition: all .3s ease;
+                &:hover {
+                    background-color: $brightBlueHover;
+                }
+            }
+            .button-cancel {
+                color: $desaturatedBlue;
+                background-color: transparent;
+                cursor: pointer;
+                transition: all .3s ease;
+                &:hover {
+                    background-color: $backgroundCancelButton;
+                }
+            }
+        }
+    }
+
+}
+
+/*Gratefulness*/
+.attribution {
+    width: 100%;
+    height: auto;
+    position: absolute;
+    font-size: 11px; 
+    text-align: center;
+}
+
+.attribution a {
+    color: hsl(228, 45%, 44%);
+}
